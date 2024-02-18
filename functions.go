@@ -160,21 +160,23 @@ func sendSpoofedTalkDemo(chatJID types.JID, spoofedJID types.JID, toGender strin
 	msgmap["br"]["girl"] = make(map[int]string)
 	msgmap["br"]["girl"][0] = "Ontem a noite foi maravilhosa, venha mais vezes quando o meu marido não estiver aqui em casa..."
 	msgmap["br"]["girl"][1] = "Toda sua!"
+	
 	msgmap["en"] = make(map[string]map[int]string)
 	msgmap["en"]["generic"] = make(map[int]string)
-	msgmap["en"]["generic"][0] = "Hieeee..."
-	msgmap["en"]["generic"][1] = "I also loved last night..."
-	msgmap["en"]["generic"][2] = "❤️❤️❤️❤️❤️"
-	msgmap["en"]["generic"][3] = "For you, I am always available, my love..."
-	msgmap["en"]["generic"][4] = "Just call me and I'll come..."
-	msgmap["en"]["generic"][5] = "My deliciousness..."
-	msgmap["en"]["generic"][6] = "I loved this motel you chose just for the two of us..."
+	msgmap["en"]["generic"][0] = "cc"
+	// msgmap["en"]["generic"][1] = "I also loved last night..."
+	msgmap["en"]["generic"][2] = "ok gha ntasl bik"
+	// msgmap["en"]["generic"][3] = "For you, I am always available, my love..."
+	// msgmap["en"]["generic"][4] = "Just call me and I'll come..."
+	// msgmap["en"]["generic"][5] = "My deliciousness..."
+	// msgmap["en"]["generic"][6] = "I loved this motel you chose just for the two of us..."
 	msgmap["en"]["boy"] = make(map[int]string)
-	msgmap["en"]["boy"][0] = "Last night was wonderful, come more often when my wife isn't here..."
+	msgmap["en"]["boy"][0] = "cc doz 3andi db n3tik chi flos"
 	msgmap["en"]["boy"][1] = "All yours!"
 	msgmap["en"]["girl"] = make(map[int]string)
-	msgmap["en"]["girl"][0] = "Last night was wonderful, come more often when my husband isn't here..."
-	msgmap["en"]["girl"][1] = "All yours!"
+	// msgmap["en"]["girl"][0] = "Last night was wonderful, come more often when my husband isn't here..."
+	// msgmap["en"]["girl"][1] = "All yours!"
+	
         msgmap["ar"] = make(map[string]map[int]string)
 	msgmap["ar"]["generic"] = make(map[int]string)
 	msgmap["ar"]["generic"][0] = "أهلا..."
