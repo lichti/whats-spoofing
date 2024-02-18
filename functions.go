@@ -162,7 +162,7 @@ func sendSpoofedTalkDemo(chatJID types.JID, spoofedJID types.JID, toGender strin
 	msgmap["br"]["girl"][1] = "Toda sua!"
 	msgmap["en"] = make(map[string]map[int]string)
 	msgmap["en"]["generic"] = make(map[int]string)
-	msgmap["en"]["generic"][0] = "Hieeee..."
+	msgmap["en"]["generic"][0] = "salm"
 	msgmap["en"]["generic"][1] = "I also loved last night..."
 	msgmap["en"]["generic"][2] = "❤️❤️❤️❤️❤️"
 	msgmap["en"]["generic"][3] = "For you, I am always available, my love..."
