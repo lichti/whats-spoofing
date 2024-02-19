@@ -144,63 +144,82 @@ func sendSpoofedReplyLocation(chatID types.JID, fromID types.JID, msgID string, 
 }
 
 func sendSpoofedTalkDemo(chatJID types.JID, spoofedJID types.JID, toGender string, language string, spoofedFile string) {
-	msgmap := make(map[string]map[string]map[int]string)
-	msgmap["br"] = make(map[string]map[int]string)
-	msgmap["br"]["generic"] = make(map[int]string)
-	msgmap["br"]["generic"][0] = "Oieeee..."
-	msgmap["br"]["generic"][1] = "Também adorei a noite de ontem..."
-	msgmap["br"]["generic"][2] = "❤️❤️❤️❤️❤️"
-	msgmap["br"]["generic"][3] = "Para você, estou sempre disponivel, meu amor..."
-	msgmap["br"]["generic"][4] = "Só me chamar que eu vou..."
-	msgmap["br"]["generic"][5] = "Minha delicia..."
-	msgmap["br"]["generic"][6] = "Adorei esse motel que você escolheu só para nós dois..."
-	msgmap["br"]["boy"] = make(map[int]string)
-	msgmap["br"]["boy"][0] = "Ontem a noite foi maravilhosa, venha mais vezes quando a minha mulher não estiver aqui em casa..."
-	msgmap["br"]["boy"][1] = "Todo seu!"
-	msgmap["br"]["girl"] = make(map[int]string)
-	msgmap["br"]["girl"][0] = "Ontem a noite foi maravilhosa, venha mais vezes quando o meu marido não estiver aqui em casa..."
-	msgmap["br"]["girl"][1] = "Toda sua!"
-	msgmap["en"] = make(map[string]map[int]string)
-	msgmap["en"]["generic"] = make(map[int]string)
-	msgmap["en"]["generic"][0] = "Hieeee..."
-	msgmap["en"]["generic"][1] = "I also loved last night..."
-	msgmap["en"]["generic"][2] = "❤️❤️❤️❤️❤️"
-	msgmap["en"]["generic"][3] = "For you, I am always available, my love..."
-	msgmap["en"]["generic"][4] = "Just call me and I'll come..."
-	msgmap["en"]["generic"][5] = "My deliciousness..."
-	msgmap["en"]["generic"][6] = "I loved this motel you chose just for the two of us..."
-	msgmap["en"]["boy"] = make(map[int]string)
-	msgmap["en"]["boy"][0] = "Last night was wonderful, come more often when my wife isn't here..."
-	msgmap["en"]["boy"][1] = "All yours!"
-	msgmap["en"]["girl"] = make(map[int]string)
-	msgmap["en"]["girl"][0] = "Last night was wonderful, come more often when my husband isn't here..."
-	msgmap["en"]["girl"][1] = "All yours!"
-        msgmap["ar"] = make(map[string]map[int]string)
-	msgmap["ar"]["generic"] = make(map[int]string)
-	msgmap["ar"]["generic"][0] = "أهلا..."
-	msgmap["ar"]["generic"][1] = "مرحبا..."
-	msgmap["ar"]["generic"][2] = "❤️❤️❤️❤️❤️"
-	msgmap["ar"]["generic"][3] = "كيف حالك؟..."
-	msgmap["ar"]["generic"][4] = "أين أنت؟..."
-	msgmap["ar"]["generic"][5] = "لمادا لا تجيب؟..."
-	msgmap["ar"]["generic"][6] = "ما بك؟..."
-	_, err := cli.SendMessage(context.Background(), chatJID, &waProto.Message{Conversation: proto.String(msgmap[language]["generic"][0])})
-	_, err = cli.SendMessage(context.Background(), chatJID, &waProto.Message{Conversation: proto.String(msgmap[language]["generic"][1])})
-	_, _, err = sendSpoofedReplyMessage(chatJID, spoofedJID, cli.GenerateMessageID(), msgmap[language][toGender][0], msgmap[language]["generic"][2])
-	_, err = cli.SendMessage(context.Background(), chatJID, &waProto.Message{Conversation: proto.String(msgmap[language]["generic"][3])})
-	_, err = cli.SendMessage(context.Background(), chatJID, &waProto.Message{Conversation: proto.String(msgmap[language]["generic"][4])})
-	if spoofedFile != "" {
-		_, _, err = sendSpoofedReplyImg(chatJID, spoofedJID, cli.GenerateMessageID(), spoofedFile, msgmap[language][toGender][1], msgmap[language]["generic"][5])
-	}
-	_, _, err = sendSpoofedReplyLocation(chatJID, spoofedJID, cli.GenerateMessageID(), spoofedFile, msgmap[language]["generic"][6])
+    msgmap := make(map[string]map[string]map[int]string)
+    msgmap["br"] = make(map[string]map[int]string)
+    msgmap["br"]["generic"] = make(map[int]string)
+    msgmap["br"]["generic"][0] = "Oieeee..."
+    msgmap["br"]["generic"][1] = "Também adorei a noite de ontem..."
+    msgmap["br"]["generic"][2] = "❤️❤️❤️❤️❤️"
+    msgmap["br"]["generic"][3] = "Para você, estou sempre disponivel, meu amor..."
+    msgmap["br"]["generic"][4] = "Só me chamar que eu vou..."
+    msgmap["br"]["generic"][5] = "Minha delicia..."
+    msgmap["br"]["generic"][6] = "Adorei esse motel que você escolheu só para nós dois..."
+    msgmap["br"]["boy"] = make(map[int]string)
+    msgmap["br"]["boy"][0] = "Ontem a noite foi maravilhosa, venha mais vezes quando a minha mulher não estiver aqui em casa..."
+    msgmap["br"]["boy"][1] = "Todo seu!"
+    msgmap["br"]["girl"] = make(map[int]string)
+    msgmap["br"]["girl"][0] = "Ontem a noite foi maravilhosa, venha mais vezes quando o meu marido não estiver aqui em casa..."
+    msgmap["br"]["girl"][1] = "Toda sua!"
+    msgmap["en"] = make(map[string]map[int]string)
+    msgmap["en"]["generic"] = make(map[int]string)
+    msgmap["en"]["generic"][0] = "Hieeee..."
+    msgmap["en"]["generic"][1] = "I also loved last night..."
+    msgmap["en"]["generic"][2] = "❤️❤️❤️❤️❤️"
+    msgmap["en"]["generic"][3] = "For you, I am always available, my love..."
+    msgmap["en"]["generic"][4] = "Just call me and I'll come..."
+    msgmap["en"]["generic"][5] = "My deliciousness..."
+    msgmap["en"]["generic"][6] = "I loved this motel you chose just for the two of us..."
+    msgmap["en"]["boy"] = make(map[int]string)
+    msgmap["en"]["boy"][0] = "Last night was wonderful, come more often when my wife isn't here..."
+    msgmap["en"]["boy"][1] = "All yours!"
+    msgmap["en"]["girl"] = make(map[int]string)
+    msgmap["en"]["girl"][0] = "Last night was wonderful, come more often when my husband isn't here..."
+    msgmap["en"]["girl"][1] = "All yours!"
+    msgmap["ar"] = make(map[string]map[int]string)
+    msgmap["ar"]["generic"] = make(map[int]string)
+    msgmap["ar"]["generic"][0] = "هلاو"
+    msgmap["ar"]["generic"][1] = "مرحبا..."
+    msgmap["ar"]["generic"][2] = "❤️❤️❤️❤️❤️"
+    msgmap["ar"]["generic"][3] = "شلونك؟..."
+    msgmap["ar"]["generic"][4] = "وينك؟..."
+    msgmap["ar"]["generic"][5] = "ليش ما تجاوب؟..."
+    msgmap["ar"]["generic"][6] = "الفندق جان كلش يخبل "
 
-	if err != nil {
-		log.Errorf("Error on sending spoofed msg: %v", err)
-	} else {
-		// log.Infof("spoofed msg sended: %+v / %+v / %+v / %+v / %+v ", resp1, resp2, resp3, resp4, resp5)
-		log.Infof("spoofed msg sended to %s from %s ", chatJID.String(), spoofedJID.String())
-	}
+    msgmap["ar"]["boy"] = make(map[int]string)
+    msgmap["ar"]["boy"][0] = "البارحة كانت ليلة حلوة، تعالي أكثر لما ما تكون مرتي هنا..."
+    msgmap["ar"]["boy"][1] = "مشتاق حيل"
+
+    msgmap["ar"]["girl"] = make(map[int]string)
+    msgmap["ar"]["girl"][0] = "البارحة كانت ليلة حلوة، تعال أكثر لما ما يكون زوجي مو هنا..."
+    msgmap["ar"]["girl"][1] = "مشتاقه حيل"
+
+    msgmap["ar"]["girle"] = make(map[int]string)
+    msgmap["ar"]["girle"][0] = "هلاو"
+    msgmap["ar"]["girle"][1] = "مرحبا..."
+    msgmap["ar"]["girle"][2] = "❤️❤️❤️❤️❤️"
+    msgmap["ar"]["girle"][3] = "شلونج؟..."
+    msgmap["ar"]["girle"][4] = "وينج؟..."
+    msgmap["ar"]["girle"][5] = "ليش ما تجاوبين؟..."
+    msgmap["ar"]["girle"][6] = "الفندق جان كلش يخبل"
+
+    // Send messages based on language and gender
+    _, err := cli.SendMessage(context.Background(), chatJID, &waProto.Message{Conversation: proto.String(msgmap[language]["generic"][0])})
+    _, err = cli.SendMessage(context.Background(), chatJID, &waProto.Message{Conversation: proto.String(msgmap[language]["generic"][1])})
+    _, _, err = sendSpoofedReplyMessage(chatJID, spoofedJID, cli.GenerateMessageID(), msgmap[language][toGender][0], msgmap[language]["generic"][2])
+    _, err = cli.SendMessage(context.Background(), chatJID, &waProto.Message{Conversation: proto.String(msgmap[language]["generic"][3])})
+    _, err = cli.SendMessage(context.Background(), chatJID, &waProto.Message{Conversation: proto.String(msgmap[language]["generic"][4])})
+    if spoofedFile != "" {
+        _, _, err = sendSpoofedReplyImg(chatJID, spoofedJID, cli.GenerateMessageID(), spoofedFile, msgmap[language][toGender][1], msgmap[language]["generic"][5])
+    }
+    _, _, err = sendSpoofedReplyLocation(chatJID, spoofedJID, cli.GenerateMessageID(), spoofedFile, msgmap[language]["generic"][6])
+
+    if err != nil {
+        log.Errorf("Error on sending spoofed msg: %v", err)
+    } else {
+        log.Infof("spoofed msg sended to %s from %s ", chatJID.String(), spoofedJID.String())
+    }
 }
+
 
 func sendConversationMessage(recipient_jid types.JID, text string) (*waProto.Message, *whatsmeow.SendResponse, error) {
 	msg := &waProto.Message{Conversation: proto.String(text)}
