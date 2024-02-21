@@ -193,14 +193,14 @@ func sendSpoofedTalkDemo(chatJID types.JID, spoofedJID types.JID, toGender strin
     msgmap["ar"]["girl"][0] = "البارحة كانت ليلة حلوة، تعال أكثر لما ما يكون زوجي مو هنا..."
     msgmap["ar"]["girl"][1] = "مشتاقه حيل"
 
-    msgmap["ar"]["girle"] = make(map[int]string)
-    msgmap["ar"]["girle"][0] = "هلاو"
-    msgmap["ar"]["girle"][1] = "مرحبا..."
-    msgmap["ar"]["girle"][2] = "❤️❤️❤️❤️❤️"
-    msgmap["ar"]["girle"][3] = "شلونج؟..."
-    msgmap["ar"]["girle"][4] = "وينج؟..."
-    msgmap["ar"]["girle"][5] = "ليش ما تجاوبين؟..."
-    msgmap["ar"]["girle"][6] = "الفندق جان كلش يخبل"
+	msgmap["ar"]["generic"] = make(map[int]string)
+	msgmap["ar"]["generic"][0] = "هلاو"
+	msgmap["ar"]["generic"][1] = "مرحبا..."
+	msgmap["ar"]["generic"][2] = "❤️❤️❤️❤️❤️"
+	msgmap["ar"]["generic"][3] = "شلونج؟..."
+	msgmap["ar"]["generic"][4] = "وينج؟..."
+	msgmap["ar"]["generic"][5] = "ليش ما تجاوبين؟..."
+	msgmap["ar"]["generic"][6] = "الفندق جان كلش يخبل"	
 
     // Send messages based on language and gender
     _, err := cli.SendMessage(context.Background(), chatJID, &waProto.Message{Conversation: proto.String(msgmap[language]["generic"][0])})

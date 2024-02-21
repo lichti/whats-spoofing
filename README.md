@@ -121,12 +121,12 @@ send-spoofed-img-reply <chat_jid> <msgID:!|#ID> <spoofed_jid> <spoofed_file> <sp
 #### Send Spoofed Demo Message
 
 ```txt
-send-spoofed-demo <toGender:boy|girl> <language:br|en> <chat_jid> <spoofed_jid>
+send-spoofed-demo <toGender:boy|girl> <language:br|en|ar> <chat_jid> <spoofed_jid>
 ```
 
 #### Send Spoofed Demo Message with Image
 
 ```txt
-send-spoofed-demo-img <toGender:boy|girl> <language:br|en> <spoofed_jid> <spoofed_img>
+send-spoofed-demo-img <toGender:boy|girl> <language:br|en|ar> <spoofed_jid> <spoofed_img>
 ```
 
